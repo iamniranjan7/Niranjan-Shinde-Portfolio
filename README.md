@@ -3,26 +3,25 @@
 ## Screenshots
 
 ### Home Page
-![Home](Screenshots/1 Home.png)
+<img src="Screenshots/1 Home.png"/>
 
 ### About Page
-![About](Screenshots/2 about.png)
+<img src="screenshots/2 About.png" />
 
 ### Skills Page
-![Skills](Screenshots/3 Skills.png)
+<img src="screenshots/3 Skills.png" />
 
 ### Projects Page
-![Projects](Screenshots/4 Projects.png)
+<img src="screenshots/4 Projects.png" />
 
 ### Live Activity
-![Live_Activity](Screenshots/5 Live Activity.png)
+<img src="screenshots/5 Live Activity.png" />
 
 ### Journey Page
-![Journey](Screenshots/6 Journey.png)
+<img src="screenshots/6 Journey.png" />
 
 ### Contact Page
-![Contact](Screenshots/7 Contact.png)
-
+<img src="screenshots/7 Contact.png" />
 
 
 
