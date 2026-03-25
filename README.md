@@ -15,7 +15,7 @@
 <img src="Screenshots/Projects.png" width="600"/>
 
 ### Live Activity
-<img src="Screenshots/LiveActivity.png" width="600"/>
+<img src="Screenshots/Live Activity.png" width="600"/>
 
 ### Journey Page
 <img src="Screenshots/Journey.png" width="600"/>
