@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Niranjan Shinde — Data Scientist & ML Engineer</title>
+<title>Niranjan Shinde — Data Analyst & ML Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -617,8 +617,217 @@ section {
   color: var(--dim);
 }
 
+/* ── CERTIFICATIONS ── */
+#certifications {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.cert-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px 30px 26px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--border2);
+  box-shadow: 0 28px 72px rgba(0,0,0,0.5);
+}
+
+/* Coloured top accent bar */
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 16px 16px 0 0;
+}
+.cert-card:hover::before { opacity: 1; }
+.cert-card.acc-cyan::before   { background: linear-gradient(90deg, var(--cyan), rgba(0,212,255,0.1)); }
+.cert-card.acc-green::before  { background: linear-gradient(90deg, var(--green), rgba(0,229,160,0.1)); }
+.cert-card.acc-orange::before { background: linear-gradient(90deg, var(--orange), rgba(255,140,66,0.1)); }
+.cert-card.acc-purple::before { background: linear-gradient(90deg, #b07fe8, rgba(176,127,232,0.1)); }
+
+/* Ambient glow on hover */
+.cert-card.acc-cyan:hover   { box-shadow: 0 28px 72px rgba(0,0,0,0.5), 0 0 60px rgba(0,212,255,0.06); }
+.cert-card.acc-green:hover  { box-shadow: 0 28px 72px rgba(0,0,0,0.5), 0 0 60px rgba(0,229,160,0.06); }
+.cert-card.acc-orange:hover { box-shadow: 0 28px 72px rgba(0,0,0,0.5), 0 0 60px rgba(255,140,66,0.06); }
+.cert-card.acc-purple:hover { box-shadow: 0 28px 72px rgba(0,0,0,0.5), 0 0 60px rgba(176,127,232,0.06); }
+
+/* Large watermark emoji */
+.cert-watermark {
+  position: absolute;
+  bottom: -14px; right: -4px;
+  font-size: 90px;
+  opacity: 0.04;
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.cert-card:hover .cert-watermark {
+  opacity: 0.07;
+  transform: scale(1.08) rotate(-5deg);
+}
+
+.cert-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cert-issuer-logo {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.cert-card:hover .cert-issuer-logo {
+  transform: scale(1.05);
+}
+.cert-card.acc-cyan:hover   .cert-issuer-logo { border-color: rgba(0,212,255,0.35); }
+.cert-card.acc-green:hover  .cert-issuer-logo { border-color: rgba(0,229,160,0.35); }
+.cert-card.acc-orange:hover .cert-issuer-logo { border-color: rgba(255,140,66,0.35); }
+.cert-card.acc-purple:hover .cert-issuer-logo { border-color: rgba(176,127,232,0.35); }
+
+.cert-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cert-badge.verified {
+  color: var(--green);
+  border-color: rgba(0,229,160,0.3);
+  background: rgba(0,229,160,0.07);
+}
+.cert-badge.inprogress {
+  color: var(--yellow);
+  border-color: rgba(255,209,102,0.3);
+  background: rgba(255,209,102,0.07);
+}
+.cert-badge .badge-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100%{ opacity:1; transform:scale(1); }
+  50%{ opacity:0.4; transform:scale(0.7); }
+}
+
+.cert-name {
+  font-family: var(--head);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.cert-issuer {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.cert-skill-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 9px;
+  border-radius: 2px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--dim);
+  transition: border-color 0.2s, color 0.2s;
+}
+.cert-card:hover .cert-skill-tag {
+  border-color: var(--border2);
+  color: var(--muted);
+}
+
+.cert-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.cert-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 5px;
+  background: rgba(0,212,255,0.04);
+  transition: all 0.25s;
+}
+.cert-link:hover {
+  background: rgba(0,212,255,0.12);
+  border-color: rgba(0,212,255,0.55);
+  box-shadow: 0 0 18px rgba(0,212,255,0.15);
+}
+.cert-link svg { transition: transform 0.25s; }
+.cert-link:hover svg { transform: translateX(4px); }
+
 /* ── EXPERIENCE TIMELINE ── */
-#experience { background: var(--bg); }
+#experience { background: var(--bg2); border-top: 1px solid var(--border); }
 .timeline { position: relative; }
 .timeline::before {
   content: '';
@@ -833,6 +1042,7 @@ footer .links a:hover { color: var(--cyan); }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card.featured { grid-column: span 1; }
   .contact-grid { grid-template-columns: 1fr; max-width: 300px; }
+  .certs-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
   nav { padding: 16px 20px; }
@@ -859,10 +1069,6 @@ footer .links a:hover { color: var(--cyan); }
   box-shadow: 0 0 6px var(--green);
   animation: pulse-dot 1.5s ease-in-out infinite;
   display: inline-block;
-}
-@keyframes pulse-dot {
-  0%,100%{ opacity:1; transform:scale(1); }
-  50%{ opacity:0.4; transform:scale(0.7); }
 }
 
 /* ── ACTIVITY LAYOUT ── */
@@ -950,20 +1156,13 @@ footer .links a:hover { color: var(--cyan); }
   font-family: var(--mono); font-size: 12px; color: var(--muted);
   animation: shimmer 1.5s infinite;
 }
-.lang-row {
-  display: flex; flex-direction: column; gap: 4px;
-}
+.lang-row { display: flex; flex-direction: column; gap: 4px; }
 .lang-row-label {
   display: flex; justify-content: space-between;
   font-size: 12px; color: var(--text);
 }
-.lang-bar-bg {
-  height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden;
-}
-.lang-bar-fill {
-  height: 100%; border-radius: 2px;
-  transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1);
-}
+.lang-bar-bg { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
+.lang-bar-fill { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
 .repo-row {
   display: flex; align-items: center; justify-content: space-between;
   padding: 8px 12px; border-radius: 8px;
@@ -1012,9 +1211,7 @@ footer .links a:hover { color: var(--cyan); }
   font-weight: 700; color: var(--text); line-height: 1.2;
   margin-bottom: 20px;
 }
-.hiring-chips {
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
+.hiring-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .h-chip {
   background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.2);
   border-radius: 20px; padding: 5px 14px;
@@ -1037,6 +1234,7 @@ footer .links a:hover { color: var(--cyan); }
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
     <li><a href="#activity">Activity</a></li>
     <li><a href="#experience">Journey</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1418,6 +1616,138 @@ footer .links a:hover { color: var(--cyan); }
           <span class="stack-item">XGBoost</span>
           <span class="stack-item">Healthcare</span>
         </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+  <div class="reveal">
+    <div class="section-label">// 04 — Certifications</div>
+    <h2 class="section-title">Credentials &amp; Learning</h2>
+    <p class="section-sub">Verified certifications across data science, analytics, and engineering — building a well-rounded technical foundation.</p>
+  </div>
+
+  <div class="certs-grid">
+
+    <!-- IBM Data Science -->
+    <div class="cert-card acc-cyan reveal">
+      <div class="cert-watermark">🎓</div>
+      <div class="cert-top">
+        <div class="cert-issuer-logo">🔵</div>
+        <span class="cert-badge inprogress"><span class="badge-dot"></span>In Progress</span>
+      </div>
+      <div class="cert-name">IBM Data Science Professional Certificate (Ongoing) </div>
+      <div class="cert-issuer">IBM · Coursera</div>
+      <div class="cert-skills">
+        <span class="cert-skill-tag">Python</span>
+        <span class="cert-skill-tag">Machine Learning</span>
+        <span class="cert-skill-tag">Data Visualization</span>
+        <span class="cert-skill-tag">SQL</span>
+        <span class="cert-skill-tag">Applied DS</span>
+        <span class="cert-skill-tag">Jupyter</span>
+      </div>
+      <div class="cert-footer">
+        <span class="cert-date">2024 — Present</span>
+        <a href="https://www.coursera.org/professional-certificates/ibm-data-science" target="_blank" class="cert-link">
+          View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- NPTEL -->
+    <div class="cert-card acc-green reveal">
+      <div class="cert-watermark">📊</div>
+      <div class="cert-top">
+        <div class="cert-issuer-logo">🟢</div>
+        <span class="cert-badge verified"><span class="badge-dot" style="animation:none;opacity:1"></span>Verified</span>
+      </div>
+      <div class="cert-name">Data Analytics with Python</div>
+      <div class="cert-issuer">NPTEL · IIT</div>
+      <div class="cert-skills">
+        <span class="cert-skill-tag">Python</span>
+        <span class="cert-skill-tag">Pandas</span>
+        <span class="cert-skill-tag">NumPy</span>
+        <span class="cert-skill-tag">EDA</span>
+        <span class="cert-skill-tag">Statistical Analysis</span>
+        <span class="cert-skill-tag">Matplotlib</span>
+      </div>
+      <div class="cert-footer">
+        <span class="cert-date">2024</span>
+        <a href="/Certifications/Data Analytics with Python NPTEL.pdf" target="_blank" class="cert-link">
+          View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Deloitte -->
+    <div class="cert-card acc-orange reveal">
+      <div class="cert-watermark">💼</div>
+      <div class="cert-top">
+        <div class="cert-issuer-logo">🟠</div>
+        <span class="cert-badge verified"><span class="badge-dot" style="animation:none;opacity:1"></span>Verified</span>
+      </div>
+      <div class="cert-name">Data Analytics Job Simulation</div>
+      <div class="cert-issuer">Deloitte · Forage</div>
+      <div class="cert-skills">
+        <span class="cert-skill-tag">Data Interpretation</span>
+        <span class="cert-skill-tag">Forensic Technology</span>
+        <span class="cert-skill-tag">Excel</span>
+        <span class="cert-skill-tag">Tableau</span>
+        <span class="cert-skill-tag">Business Analytics</span>
+      </div>
+      <div class="cert-footer">
+        <span class="cert-date">2024</span>
+        <a href="/Certifications/Deloitte Data analytics simulation.pdf" target="_blank" class="cert-link">
+          View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- IIT Bombay RDBMS -->
+    <div class="cert-card acc-purple reveal">
+      <div class="cert-watermark">🗄️</div>
+      <div class="cert-top">
+        <div class="cert-issuer-logo">🟣</div>
+        <span class="cert-badge verified"><span class="badge-dot" style="animation:none;opacity:1"></span>Verified</span>
+      </div>
+      <div class="cert-name">RDBMS Certification</div>
+      <div class="cert-issuer">Spoken Tutorial · IIT Bombay</div>
+      <div class="cert-skills">
+        <span class="cert-skill-tag">MySQL</span>
+        <span class="cert-skill-tag">SQL</span>
+        <span class="cert-skill-tag">Database Design</span>
+        <span class="cert-skill-tag">Normalization</span>
+        <span class="cert-skill-tag">Joins &amp; Queries</span>
+      </div>
+      <div class="cert-footer">
+        <span class="cert-date">2023</span>
+        <a href="/Certifications/RDBMS Certification.pdf" target="_blank" class="cert-link">
+          View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Java -->
+    <div class="cert-card acc-purple reveal">
+      <div class="cert-watermark">🗄️</div>
+      <div class="cert-top">
+        <div class="cert-issuer-logo">🟣</div>
+        <span class="cert-badge verified"><span class="badge-dot" style="animation:none;opacity:1"></span>Verified</span>
+      </div>
+      <div class="cert-name">JAVA Certification</div>
+      <div class="cert-issuer">Spoken Tutorial · IIT Bombay</div>
+      <div class="cert-skills">
+        <span class="cert-skill-tag">Core Java</span>
+        <span class="cert-skill-tag">Object-Oriented Programming</span>
+      </div>
+      <div class="cert-footer">
+        <span class="cert-date">2023</span>
+        <a href="/Certifications/Java - IIT BOM.pdf" target="_blank" class="cert-link">
+          View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
 
